@@ -17,9 +17,7 @@ class Cell {
 }
 
 class Grid {
-    height;
-    width;
-    gridCollection;
+
     constructor(width, height) {
         if (width < 1 || height < 1) {
             return;

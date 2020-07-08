@@ -3,8 +3,13 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <script src="cell.js"></script>
+    <script src="states.js"></script>
+
     <script src="paint_display.js"></script>
     <script src="run_logic.js"></script>
+    <script src="loop_state.js"></script>
+
+    <script src="buttons.js"></script>
     <script src="make_blob.js"></script>
 
 </head>
@@ -12,13 +17,61 @@
 <body>
 
     <h1>Color Blobs 3</h1>
-    <p>What happened to 1 and 2?</p>
+    <p style="text-align: center;">What happened to 1 and 2?</p>
     <br>
-    <div><canvas id="canvasx" style=></canvas></div>
+    <div>
+        <p style="text-align: center;"><canvas id="canvasx" style=></canvas></p>
+    </div>
 
-    <p id="buttons">
-        <button id="run" onclick='run_logic()'>RUN</button>&nbsp;<label id="generation">0</label>
-    </p>
+    <table style="margin:auto">
+
+        <tr style="text-align: center;">
+            <th>Delay</th>
+            <th>Colors</th>
+            <th>Size></th>
+            <th>Run</th>
+            <th>Generation</th>
+        </tr>
+        <tr style="text-align: center;">
+
+            <td>
+                <select id="select_delay" name=select_delay onchange='cycle_delay();'>
+                    <option>1</option>
+                    <option>3</option>
+                    <option>10</option>
+                    <option>30</option>
+                    <option>100</option>
+                    <option>300</option>
+                    <option selected>1000</option>
+            
+                    </select>
+            </td>
+            <td>
+                <select id="color_depth" onchange='color_depth();'>
+                    <option selected>2: B/W</option>
+                    <option >3: R/G/B</option>
+                    <option >4: R/G/B/BLACK</option>
+                    <option >8: BLK/R/G/B/RG/RB/GB/WH</option>
+                   </select>
+            </td>
+            <td>
+                <select id="grid_size" onchange='grid_size();'>
+                    <option selected>5x5</option>
+                    <option>8x8</option>
+                    <option>10x10</option>
+                    <option>15x15</option>
+                    <option>20x20</option>
+                   </select>
+            </td>
+            <td>
+                <button id="run" onclick='run_logic()'>RUN</button>
+            </td>
+            <td>
+                <label id="generation">0</label>
+            </td>
+        </tr>
+    </table>
+
 </body>
 <script>
     make_blob()

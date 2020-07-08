@@ -1,5 +1,3 @@
-run = false;
-
 function setLabel() {
     if (run) {
         document.getElementById("run").innerHTML = "STOP";
