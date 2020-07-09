@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="qunit-2.10.1.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="qunit-2.10.1.js"></script>
+    <script src="cell.js"></script>
+    <script src="grid.js"></script>
+
+    <script>
+        // This can of course be in a separate file
+        var cell = new Cell(1, 2, 3)
+        QUnit.test("cell test", function(assert) {
+            // assert.ok(hello('world') === "hello world", "Passed!");
+            var k = cell.cell_color();
+            assert.ok(k[0] === 1 && k[1] === 2 && k[2] === 3, "Passed!");
+
+        });
+
+        var grid = new Grid(5);
+        var cell2 = grid.cell(1, 1);
+        cell2.color_cell(10, 20, 30);
+        var k = cell2.cell_color();
+        QUnit.test("grid cell test", function(assert) {
+            assert.ok(k[0] === 10 && k[1] === 20 && k[2] === 30, "Passed!");
+
+        });
+    </script>
+</body>
+
+</html>

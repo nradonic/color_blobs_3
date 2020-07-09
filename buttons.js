@@ -12,10 +12,9 @@ function color_depth() {
         return;
     }
 
-    color_group = temp;
-
     stop_loop();
-    //init_grid();
+    color_group = temp;
+    load_grid_randomly();
     start_loop();
 }
 
@@ -26,7 +25,8 @@ function grid_size() {
     }
     stop_loop();
     grid_size_current = grid_sizes[temp];
-    //init_grid();
+    grid = new Grid(grid_size_current);
+    load_grid_randomly();
 
     start_loop();
 }
