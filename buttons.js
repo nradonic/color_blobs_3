@@ -15,6 +15,7 @@ function color_depth() {
     stop_loop();
     color_group = temp;
     load_grid_randomly();
+    paint_display();
     start_loop();
 }
 
@@ -27,6 +28,7 @@ function grid_size() {
     grid_size_current = grid_sizes[temp];
     grid = new Grid(grid_size_current);
     load_grid_randomly();
+    paint_display();
 
     start_loop();
 }

@@ -18,21 +18,16 @@ class Grid {
             }
         }
 
-        // this.gridCollection[1][1] = new Cell(255, 0, 0);
-        // this.gridCollection[2][1] = new Cell(0, 255, 0);
-        // this.gridCollection[3][1] = new Cell(0, 0, 255);
-
     }
 
-    setCellColor(x, y, r, g, b) {
-        // this.gridCollection[x][y].color_cell(r, g, b); //[y]; //.color_cell(r, g, b);
-        this.gridCollection[x][y].color_cell(r, g, b); //[y]; //.color_cell(r, g, b);
+    setCellColor(columnx, rowy, r, g, b) {
+        this.gridCollection[rowy][columnx].color_cell(r, g, b); //[y]; //.color_cell(r, g, b);
         var a = 1;
     }
 
 
-    cell(x, y) {
-        var cell = this.gridCollection[x][y];
+    cell(columnx, rowy) {
+        var cell = this.gridCollection[rowy][columnx];
         return cell;
     }
 }
