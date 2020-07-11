@@ -5,10 +5,12 @@
     <script src="cell.js"></script>
     <script src="grid.js"></script>
     <script src="states.js"></script>
+    <script src="select_options.js"></script>
 
     <script src="paint_display.js"></script>
     <script src="run_logic.js"></script>
     <script src="loop_state.js"></script>
+    <script src="files.js"></script>
 
     <script src="buttons.js"></script>
     <script src="random_grid.js"></script>
@@ -35,36 +37,17 @@
             <th>Generation</th>
         </tr>
         <tr style="text-align: center;">
-
             <td>
                 <select id="select_delay" name=select_delay onchange='cycle_delay();'>
-                    <option>1</option>
-                    <option>3</option>
-                    <option>10</option>
-                    <option>30</option>
-                    <option>100</option>
-                    <option>300</option>
-                    <option selected>1000</option>
-            
-                    </select>
+                </select>
             </td>
             <td>
                 <select id="color_depth" onchange='color_depth();'>
-                    <option selected>2: B/W</option>
-                    <option >3: R/G/B</option>
-                    <option >4: R/G/B/BLACK</option>
-                    <option >8: BLK/R/G/B/RG/RB/GB/WH</option>
-                   </select>
+                </select>
             </td>
             <td>
                 <select id="grid_size" onchange='grid_size();'>
-                    <option selected>5x5</option>
-                    <option>8x8</option>
-                    <option>10x10</option>
-                    <option>12x12</option>
-                    <option>15x15</option>
-                    <option>20x20</option>
-                   </select>
+                </select>
             </td>
             <td>
                 <button id="run" onclick='run_logic()'>RUN</button>
@@ -75,6 +58,21 @@
         </tr>
     </table>
 
+    <br/>
+    <table style="margin:auto">
+        <tr style="text-align: center;">
+            <td>
+                <button id="save" onclick='save_grid()'>Save Grid</button>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+                <button id="load" onclick='load_grid()'>Load Grid</button>
+            </td>
+            <td>
+                <label id="filename">None</label>
+            </td>
+        </tr>
+    </table>
 </body>
 <script>
     make_blob()

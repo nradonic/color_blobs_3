@@ -1,6 +1,7 @@
 function make_blob() {
-    grid = new Grid(grid_size_current);
+    states.grid = new Grid(states.grid_size_current);
     load_grid_randomly();
+    updateButtons();
     paint_display();
     start_loop();
 }

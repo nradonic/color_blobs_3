@@ -1,5 +1,5 @@
 function setLabel() {
-    if (run) {
+    if (states.run) {
         document.getElementById("run").innerHTML = "STOP";
         return;
     }
@@ -9,6 +9,6 @@ function setLabel() {
 
 
 function run_logic() {
-    run = !run;
+    states.run = !states.run;
     setLabel();
 }

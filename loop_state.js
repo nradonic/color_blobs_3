@@ -1,12 +1,18 @@
 function start_loop() {
-    loop_state = setInterval(function() {
-        if (run) {
-            generation++;
-            paint_display()
+    states.loop_state = setInterval(function() {
+        if (states.updated) {
+            updateButtons();
+            states.updated = false;
+            paint_display();
         }
-    }, interval);
+
+        if (states.run) {
+            states.generation++;
+            paint_display();
+        }
+    }, states.interval);
 }
 
 function stop_loop() {
-    clearInterval(loop_state);
+    clearInterval(states.loop_state);
 }
