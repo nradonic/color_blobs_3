@@ -30,4 +30,16 @@ class Grid {
         var cell = this.gridCollection[rowy][columnx];
         return cell;
     }
+
+    getSize() { return this.columns; }
+
+    deserializeGrid(grid_data) {
+        for (x = 0; x < this.gridCollection.length; x++) {
+            for (y = 0; y < this.gridCollection.length; y++) {
+                var k = grid_data.gridCollection[y][x];
+
+                this.setCellColor(x, y, k.r, k.g, k.b);
+            }
+        }
+    }
 }

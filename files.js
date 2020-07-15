@@ -48,7 +48,10 @@ function load_grid() {
         reader.onload = readerEvent => {
             var content = readerEvent.target.result; // this is the content!
             var states2 = JSON.parse(decodeURIComponent(content)).states;
-            states2.grid = deserializeGrid(states2);
+            // states2.grid = deserializeGrid(states2);
+            var k = new Grid(states2.grid_size_current);
+            k.deserializeGrid(states2.grid);
+            states2.grid = k;
             states2.updated = true;
             states = states2;
         }
@@ -59,14 +62,4 @@ function load_grid() {
     element.click();
     start_loop();
 
-    function deserializeGrid(states2) {
-        var grid2 = new Grid(states2.grid.columns);
-        for (x = 0; x < states2.grid.columns; x++) {
-            for (y = 0; y < states2.grid.rows; y++) {
-                var k = states2.grid.gridCollection[y][x];
-                grid2.setCellColor(x, y, k.r, k.g, k.b);
-            }
-        }
-        return grid2;
-    }
 }

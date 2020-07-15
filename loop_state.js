@@ -8,6 +8,7 @@ function start_loop() {
 
         if (states.run) {
             states.generation++;
+            generateNewGeneration();
             paint_display();
         }
     }, states.interval);
