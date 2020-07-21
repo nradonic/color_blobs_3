@@ -1,8 +1,10 @@
-function generateNewGeneration() {
+function generateNewGeneration2() {
     var grid_new = new Grid(states.grid_size_current);
-    var colors = states.colors_patterns[states.color_group];
-    var centers = mean_x_y(states.grid, colors);
+    var color_list = states.colors_patterns[states.color_group];
+    var centers = mean_x_y(states.grid, color_list);
     var attractors = extend_means_to_edges(centers, states.grid_size_current);
+
+    grid_new = migrateColors(states.grid, color_list, states.grid_size_current, attractors);
 
     a = 1;
 
@@ -22,7 +24,7 @@ function mean_x_y(gridM, colorsM) {
         var count = 0;
         for (row = 0; row < gridM.rows; row++) {
             for (col = 0; col < gridM.columns; col++) {
-                if (matches(colorsM[i], gridM.cell(row, col).cell_color())) {
+                if (matches3d(colorsM[i], gridM.cell(row, col).cell_color())) {
                     x += col;
                     y += row;
                     count++;
@@ -37,9 +39,6 @@ function mean_x_y(gridM, colorsM) {
     }
 }
 
-function matches(a, b) {
-    return (a[0] === b[0] && a[1] === b[1] && a[2] == b[2]);
-}
 
 function extend_means_to_edges(means, grid_size) {
     var results = [];
@@ -68,4 +67,16 @@ function inverse_scale(x, count, middle) {
 
 function scale(xyc, middle, scale) {
     return [(xyc[0] - middle) * scale + middle, (xyc[1] - middle) * scale + middle, xyc[2]];
+}
+
+function migrateColors(gridM, colorsM, size, attractors) {
+    for (row = 0; row < size; row++) {
+        for (col = 0; col < size; col++) {
+            // calculate r^2 current cell color to attractor center - all 9 cells
+            // calculate r^2 for each of 8 neighbors, and r^2 if they were at center
+            // find trade with biggest reduction in r^2  
+            // delta r^2 = r^2(center_old - center_new + target_old - target_new)
+            // swap colors
+        }
+    }
 }
