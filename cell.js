@@ -1,17 +1,14 @@
 class Cell {
-    constructor(r, g, b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
+    constructor(index) {
+        this.index = index;
     }
 
     cell_color() {
-        return [this.r, this.g, this.b];
+        var k = states.colors_patterns[states.color_group][this.index];
+        return [k[0], k[1], k[2], this.index];
     }
 
-    color_cell(r, g, b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
+    color_cell(index) {
+        this.index = index;
     }
 }

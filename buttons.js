@@ -1,7 +1,7 @@
 function cycle_delay() {
     var dropdownDelay = document.getElementById("select_delay");
     states.interval = parseInt(dropdownDelay.options[dropdownDelay.selectedIndex].value);
-
+    states.delay_option = dropdownDelay.selectedIndex;
     stop_loop();
     start_loop();
 }

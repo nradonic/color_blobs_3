@@ -20,9 +20,8 @@ class Grid {
 
     }
 
-    setCellColor(columnx, rowy, r, g, b) {
-        this.gridCollection[rowy][columnx].color_cell(r, g, b); //[y]; //.color_cell(r, g, b);
-        var a = 1;
+    setCellColor(columnx, rowy, index) {
+        this.gridCollection[rowy][columnx].color_cell(index); //[y]; //.color_cell(r, g, b);
     }
 
 
@@ -38,7 +37,7 @@ class Grid {
             for (y = 0; y < this.gridCollection.length; y++) {
                 var k = grid_data.gridCollection[y][x];
 
-                this.setCellColor(x, y, k.r, k.g, k.b);
+                this.setCellColor(x, y, k.index);
             }
         }
     }
