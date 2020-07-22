@@ -57,18 +57,21 @@ function paint_display_overlay(centers) {
     var myScreenWidth = states.canvas_size - 2 * border_width;
     var squareSide = myScreenWidth / states.grid_size_current;
 
-    var t = 'rgba(200,200,200,255)';
-
-
-    ctx.fillStyle = t;
-
+    var colors = states.colors_patterns[states.color_group];
     for (i = 0; i < centers.length; i++) {
+        var cc = colors[i];
+        var t = 'rgba(' + cc[0] + ',' + cc[1] + ',' + cc[2] + ',255)';
+
+        ctx.strokeStyle = t;
+        ctx.lineWidth = 3;
+
         var x = centers[i].x * squareSide + border_width;
         var y = centers[i].y * squareSide + border_width;
         var r = centers[i].r * squareSide;
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.stroke();
+        ctx.lineWidth = 1;
     }
 
 
