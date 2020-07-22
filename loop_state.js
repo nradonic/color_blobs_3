@@ -8,12 +8,13 @@ function start_loop() {
 
         if (states.run) {
             states.generation++;
-            generateNewGeneration();
             paint_display();
+            paint_display_overlay(generateNewGeneration());
         }
     }, states.interval);
 }
 
 function stop_loop() {
     clearInterval(states.loop_state);
+    mean_centers = null;
 }

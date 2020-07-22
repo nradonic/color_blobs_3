@@ -6,12 +6,12 @@ function generateNewGeneration() {
 
     var grid_new = new Grid(states.grid_size_current);
     var color_list = states.colors_patterns[states.color_group];
-    var mean_centers = mean_x_y(states.grid, color_list);
+    if (!mean_centers) {
+        mean_centers = mean_x_y(states.grid, color_list);
+    }
 
-    var attractors = push_away(mean_centers, states.grid_size_current);
-
-    a = 1;
-
+    push_away(mean_centers, states.grid_size_current);
+    return mean_centers;
 
     function mean_x_y(gridM, colorsM) {
         var results = [];
@@ -76,8 +76,8 @@ function generateNewGeneration() {
 
     function push_two(ci, cj) {
         var delta_y = ci.y - cj.y;
-        var delta_x = ci.y - cj.x;
-        var r = Math.sqrt(delta_x * delta_y + delta_x * delta_x);
+        var delta_x = ci.x - cj.x;
+        var r = Math.sqrt(delta_y * delta_y + delta_x * delta_x);
         var fix = r - ci.r - cj.r;
         var dx = fix * delta_x / r;
         var dy = fix * delta_y / r;

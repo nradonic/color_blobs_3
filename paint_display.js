@@ -48,3 +48,28 @@ function paint_display() {
     clearCanvas();
     drawCanvas1();
 }
+
+function paint_display_overlay(centers) {
+    var canvasX = document.getElementById("canvasx");
+    var ctx = canvasX.getContext("2d");
+
+    border_width = 2;
+    var myScreenWidth = states.canvas_size - 2 * border_width;
+    var squareSide = myScreenWidth / states.grid_size_current;
+
+    var t = 'rgba(200,200,200,255)';
+
+
+    ctx.fillStyle = t;
+
+    for (i = 0; i < centers.length; i++) {
+        var x = centers[i].x * squareSide + border_width;
+        var y = centers[i].y * squareSide + border_width;
+        var r = centers[i].r * squareSide;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+
+
+}

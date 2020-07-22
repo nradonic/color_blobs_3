@@ -43,3 +43,5 @@ let states = {
     color_group: 0,
     updated: true
 }
+
+var mean_centers = null;
