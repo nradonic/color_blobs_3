@@ -27,7 +27,8 @@ function generateNewGeneration() {
             let grid_size = gridM.rows;
             for (row = 0; row < grid_size; row++) {
                 for (col = 0; col < grid_size; col++) {
-                    if (matches3d(colorsM[i], gridM.cell(row, col).cell_color())) {
+                    var k = gridM.cell(row, col).cell_color()[3];
+                    if (i === k) {
                         x += col;
                         y += row;
                         count++;
@@ -56,12 +57,6 @@ function generateNewGeneration() {
             };
         }
     }
-
-
-    function matches3d(a, b) {
-        return (a[0] === b[0] && a[1] === b[1] && a[2] == b[2]);
-    }
-
 
     function push_away(centers, grid_size) {
         for (i = 0; i < centers.length; i++) {

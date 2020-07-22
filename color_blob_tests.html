@@ -17,20 +17,20 @@
 
     <script>
         // This can of course be in a separate file
-        var cell = new Cell(1, 2, 3)
+        var cell = new Cell(0);
         QUnit.test("cell test", function(assert) {
             // assert.ok(hello('world') === "hello world", "Passed!");
             var k = cell.cell_color();
-            assert.ok(k[0] === 1 && k[1] === 2 && k[2] === 3, "Passed!");
+            assert.ok(k === 0, "Passed!");
 
         });
 
         var grid = new Grid(5);
         var cell2 = grid.cell(1, 1);
-        cell2.color_cell(10, 20, 30);
+        cell2.color_cell(1);
         var k = cell2.cell_color();
         QUnit.test("grid cell test", function(assert) {
-            assert.ok(k[0] === 10 && k[1] === 20 && k[2] === 30, "Passed!");
+            assert.ok(k === 1, "Passed!");
 
         });
     </script>
