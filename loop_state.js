@@ -9,7 +9,9 @@ function start_loop() {
         if (states.run) {
             states.generation++;
             paint_display();
-            paint_display_overlay(generateNewGeneration());
+            generateNewGeneration();
+            paint_display_overlay(mean_centers);
+
         }
     }, states.interval);
 }

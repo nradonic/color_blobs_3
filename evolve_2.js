@@ -93,6 +93,4 @@ function generateNewGeneration() {
 
         a = 1;
     }
-
-
 }
