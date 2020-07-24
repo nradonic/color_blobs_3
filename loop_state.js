@@ -11,7 +11,7 @@ function start_loop() {
             paint_display();
             generateNewGeneration();
             paint_display_overlay(mean_centers);
-
+            swap_random_pairs();
         }
     }, states.interval);
 }
