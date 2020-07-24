@@ -17,6 +17,7 @@ function paint_display() {
         var cc = states.grid.cell(x, y).cell_color();
 
         var t = 'rgba(' + cc[0] + ',' + cc[1] + ',' + cc[2] + ', 255)';
+
         ctx.beginPath();
         ctx.fillStyle = t;
         ctx.fillRect(startX, startY, squareSide1, squareSide1);
@@ -61,15 +62,24 @@ function paint_display_overlay(centers) {
     for (i = 0; i < centers.length; i++) {
         var cc = colors[i];
         var t = 'rgba(' + cc[0] + ',' + cc[1] + ',' + cc[2] + ',255)';
+        var tw = 'rgba(200,200,200,255)';
 
-        ctx.strokeStyle = t;
-        ctx.lineWidth = 3;
 
         var x = centers[i].x * squareSide + border_width;
         var y = centers[i].y * squareSide + border_width;
         var r = centers[i].r * squareSide;
+        var r2 = r - 1;
         ctx.beginPath();
+        ctx.strokeStyle = tw;
+        ctx.lineWidth = 7;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = t;
+        ctx.lineWidth = 3;
+        ctx.arc(x, y, r2, 0, 2 * Math.PI);
+
         ctx.stroke();
         ctx.lineWidth = 1;
     }
