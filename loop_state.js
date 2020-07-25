@@ -18,5 +18,5 @@ function start_loop() {
 
 function stop_loop() {
     clearInterval(states.loop_state);
-    mean_centers = null;
+
 }

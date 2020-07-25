@@ -16,6 +16,7 @@ function color_depth() {
     states.color_group = temp;
     load_grid_randomly();
     paint_display();
+    mean_centers = null;
     start_loop();
 }
 
@@ -29,6 +30,6 @@ function grid_size() {
     states.grid = new Grid(states.grid_size_current);
     load_grid_randomly();
     paint_display();
-
+    mean_centers = null;
     start_loop();
 }
