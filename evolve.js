@@ -4,8 +4,8 @@ function swap_random_pairs() {
         // cell = {x:x, y:y, index:index}
         var result = 0;
 
-        var dx = xy_and_cell.x - mean_centers[xy_and_cell.index].x;
-        var dy = xy_and_cell.y - mean_centers[xy_and_cell.index].y;
+        var dx = xy_and_cell.x - states.mean_centers[xy_and_cell.index].x;
+        var dy = xy_and_cell.y - states.mean_centers[xy_and_cell.index].y;
         var result = Math.sqrt(dy * dy + dx * dx);
         return result;
     }
@@ -56,7 +56,7 @@ function swap_random_pairs() {
         var x = c1.x + rand_size_1_0_1();
         var y = c1.y + rand_size_1_0_1();
 
-        if (x < 0 || x > states.grid_size_current || y < 0 || y > states.grid_size_current) {
+        if (x < 0 || x >= states.grid_size_current || y < 0 || y >= states.grid_size_current) {
             return temp;
         }
 

@@ -4,7 +4,7 @@ let states = {
     interval: 1000,
     loop_state: null,
 
-    grid_sizes: [5, 8, 10, 12, 15, 20],
+    grid_sizes: [5, 8, 10, 12, 15, 20, 40],
     grid_size_current: 5,
     grid: null,
 
@@ -41,7 +41,6 @@ let states = {
         ]
     ],
     color_group: 0,
-    updated: true
+    updated: true,
+    mean_centers: null
 }
-
-var mean_centers = null;

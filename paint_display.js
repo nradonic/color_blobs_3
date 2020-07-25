@@ -68,10 +68,10 @@ function paint_display_overlay(centers) {
         var x = centers[i].x * squareSide + border_width;
         var y = centers[i].y * squareSide + border_width;
         var r = centers[i].r * squareSide;
-        var r2 = r - 1;
+        var r2 = Math.max(0, r - 1);
         ctx.beginPath();
         ctx.strokeStyle = tw;
-        ctx.lineWidth = 7;
+        ctx.lineWidth = 5;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.stroke();
 

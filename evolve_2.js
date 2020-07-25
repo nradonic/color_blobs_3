@@ -6,12 +6,12 @@ function generateNewGeneration() {
 
     var grid_new = new Grid(states.grid_size_current);
     var color_list = states.colors_patterns[states.color_group];
-    if (!mean_centers) {
-        mean_centers = mean_x_y(states.grid, color_list);
+    if (!states.mean_centers) {
+        states.mean_centers = mean_x_y(states.grid, color_list);
     }
 
-    push_away(mean_centers, states.grid_size_current);
-    return mean_centers;
+    push_away(states.mean_centers, states.grid_size_current);
+    return states.mean_centers;
 
     function mean_x_y(gridM, colorsM) {
         var results = [];

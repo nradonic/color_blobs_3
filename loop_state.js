@@ -10,7 +10,7 @@ function start_loop() {
             states.generation++;
             paint_display();
             generateNewGeneration();
-            paint_display_overlay(mean_centers);
+            paint_display_overlay(states.mean_centers);
             swap_random_pairs();
         }
     }, states.interval);
